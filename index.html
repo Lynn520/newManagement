@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FShares Block Explorer | FShares</title>
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"> -->
+    <!-- <script src="https://cdn.bootcss.com/vConsole/3.3.0/vconsole.min.js"></script>
+  <script>
+    new VConsole({})
+  </script> -->
+    <style>
+
+    </style>
+    <script>
+        function isIE() {
+            if (!!window.ActiveXObject || "ActiveXObject" in window) {
+                alert('请使用chrome、火狐等其他最新浏览器')
+                return true
+            } else {
+                return false;
+            }
+        }
+        isIE()
+
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+        window.addEventListener('resize', function () {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 7.5 + 'px';
+        }, false)
+
+        window.addEventListener('scroll', function () {
+            if (document.documentElement.clientWidth <= 800) {
+                const scrollTop = document.documentElement.scrollTop || window.pageYOffset || document.body.scrollTop;
+                const goTopButton = document.getElementsByClassName('goTopButton')[0]
+                if (scrollTop > 736) {
+                    goTopButton.style.cssText = "display:block!important"
+                } else {
+                    goTopButton.style.cssText = "display:none"
+                }
+            }
+
+        }, false)
+    </script>
+</head>
+
+<body>
+    <div id="root">
+        <!-- app -->
+    </div>
+</body>
+
+</html>

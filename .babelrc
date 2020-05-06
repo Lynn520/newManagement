@@ -1,0 +1,24 @@
+{
+    "presets": ["env","es2015", "react"],
+    "plugins": [
+      "transform-class-properties",
+      "transform-object-rest-spread",
+      "transform-decorators-legacy",    
+      "transform-regenerator",
+      "babel-plugin-idx",
+      [
+        "import",
+        [
+          {
+            "libraryName": "antd",
+            "style": true
+          },
+          {
+            "libraryName": "antd-mobile",
+            "style":true
+          }
+        ]
+      ]
+    ]
+  }
+  
