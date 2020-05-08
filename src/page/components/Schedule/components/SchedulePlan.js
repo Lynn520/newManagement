@@ -27,13 +27,57 @@ const SchedulePlanStyled = styled.div`
         background: none;
     }
     .cardBox{
+        margin: 0 auto;
         display: flex;
+    }
+    .card{
+        width: 250px;
+        height: 200px;
+        margin-right: 10px;
+        border: 1px solid #2140d0;
+        box-shadow: inset 0px 0px 10px 10px rgba(33,64,208,0.25);
+    }
+    .card:hover{
+        box-shadow: none;
+        background:
+            linear-gradient( 
+                #1DD5E6 0%, 
+                #46AEF7 100%
+            );
+        p{
+            color: #061B57;
+        }
+        .anticon{
+            color: #061B57;
+        }
+    }
+    .ant-card-head{
+        height: 30px;
+        min-height: 30px;
+        border-bottom: none;
+    }
+    .ant-card-extra{
+        padding: 0;
     }
     .cardContent{
         display: flex;
     }
+    .scheduleMemberDiv p {
+        margin-left: 10px;
+        height: 40px;
+        line-height: 40px;
+        border-bottom: 1px dashed #252b7a;
+    }
+    .ant-card-body{
+        padding: 0 20px; 
+    }
     .dateDiv{
-        border-right: 1px solid #fff;
+        padding-right: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border-right: 1px solid #454da8;
     }
 }
 `
@@ -51,7 +95,7 @@ class SchedulePlan extends Component {
                     <img src={theme.images.addBtnEllipse} />
                 </div>
                 <div className="cardBox">
-                {arr.map(()=><Card title="" extra={<a href="#"><FormOutlined /></a>}  style={{ width: 250, height:200, }}>
+                {arr.map(()=><Card className="card" title="" extra={<a href="#"><FormOutlined /></a>}>
                         <div className="cardContent">
                             <div className="dateDiv">
                                 <p>&lt;周一&gt;</p>

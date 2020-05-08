@@ -5,7 +5,8 @@ import SchedulePlan from './components/SchedulePlan'
 import ScheduleInfo from './components/ScheduleInfo'
 import { PlusCircleOutlined, EllipsisOutlined, } from '@ant-design/icons';
 const ScheduleStyled = styled.div`
-
+    width: 92%;
+    margin: 0 auto;
 }
 `
 

@@ -1,7 +1,6 @@
 import React from 'react';
 import { Table, Switch } from 'antd';
 import { Link } from "react-router-dom";
-import { del2 } from '$utils/Tool';
 import styled, { withTheme } from 'styled-components'
 const ComponentStyled = styled.div`
 margin-top: 16px;
