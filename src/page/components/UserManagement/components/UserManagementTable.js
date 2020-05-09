@@ -250,14 +250,12 @@ class RAMListTable extends React.Component {
         }];
         return <ComponentStyled theme={this.props.theme} >
             <Table
-
                 columns={columns}
                 dataSource={mockData}
                 onChange={this.props.onChange}
                 pagination={{
                     showQuickJumper: { goButton: <div className="gotoBtn"></div> },
                     pageSize: 15,
-                   
                     defaultCurrent: Number(this.props.pageNum) || 1,
                     current: Number(this.props.pageNum) || 1
                 }}

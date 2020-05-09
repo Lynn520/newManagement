@@ -77,6 +77,58 @@ body{
     p{
         color: #fff;
     }
+    .userManagementModal{
+        .ant-modal-header{
+            border: none;
+            background: none;
+        }
+        .ant-modal-content{
+            box-shadow: inset 0px 0px 10px 10px rgba(153, 204, 255,0.25);
+            border: 1px solid #99CCFF;
+            background: rgba(14,25,43,0.8)
+        }
+        .ant-form-item-label > label{
+            color: #fff;
+        }
+        .ant-input{
+            color: #fff;
+            background: none;
+        }
+        .ant-select-single:not(.ant-select-customize-input) .ant-select-selector{
+            color: #fff;
+            background: none;
+        }
+        .ant-radio-wrapper{
+            color: #fff;
+        }
+        
+    }
+    .addAuthorizationModal{
+        .ant-modal-header{
+            border: none;
+            background: none;
+        }
+        .ant-modal-title{
+            color: #fff;
+        }
+        .ant-modal-content{
+            box-shadow: inset 0px 0px 10px 10px rgba(153, 204, 255,0.25);
+            border: 1px solid #99CCFF;
+            background: rgba(14,25,43,0.8)
+        }
+        .ant-checkbox-wrapper{
+            color: #fff;
+        }
+    }
+    .ant-menu{
+        background: none;
+    }
+    .ant-menu-submenu-popup > .ant-menu{
+        background: none;
+    }
+    .ant-menu-vertical.ant-menu-sub .ant-menu-item{
+        color: yellow
+    }
 }
 `
 const RouteWithSubRoutes = ({ routes }) => {
@@ -112,8 +164,6 @@ RouteWithSubRoutes.propTypes = {
 };
 
 class MainLayout extends Component {
-
-
     componentDidMount() {
         setMinHeight()
     }

@@ -2,6 +2,11 @@ import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { Menu, Modal } from 'antd';
 const { SubMenu } = Menu;
+import styled, { withTheme } from 'styled-components'
+const MenuStyled = styled.div`
+    
+`
+
 class MenuMenu extends Component {
     state = {
         current: 'informationOverview',
@@ -17,14 +22,17 @@ class MenuMenu extends Component {
     render(){
         const { theme } = this.props
         return(
+            <MenuStyled className="">
             <Menu
+                className="headMenu"
                 onClick={this.handleClick}
                 mode="horizontal"
                 defaultSelectedKeys={['informationOverview']}
                 selectedKeys={[this.state.current]}
                 className={`menu`}
+                defaultOpenKeys = {['sub1']}
+                openKeys = {['sub1']}
             >
-                
                 <Menu.Item key="onDuty" className={`li`}>
                     <Link to='schedule'>值班值守</Link>
                 </Menu.Item>
@@ -54,12 +62,13 @@ class MenuMenu extends Component {
                 <Menu.Item key="knowledgeBase" className={`li`}>
                     <Link to='ram'>知识库</Link>
                 </Menu.Item>
-                <SubMenu title={"系统管理"}>
+                <SubMenu title={"系统管理"} key="sub1" className="headSubMenu">
                     <Menu.ItemGroup >
                         <Menu.Item key="userManagement"><Link to='userManagement'>用户管理</Link></Menu.Item>
                     </Menu.ItemGroup>
                 </SubMenu>
             </Menu>
+            </MenuStyled>
         )
     }
 }

@@ -28,6 +28,11 @@ const TabPaneComponentStyled = styled.div`
     .titleBox{
         margin-bottom: 20px;
     }
+    .ant-modal-content{
+        border: 1px solid #99CCFF;
+        box-shadow: inset 0px 0px 10px 10px rgba(33,64,208,0.25);
+        background: rgba(14,25,43,0.8)
+    }
 `
 
 class TabPaneComponent extends Component {
@@ -80,6 +85,7 @@ class TabPaneComponent extends Component {
                             */}
                         </Button>
                         <Modal
+                            className="userManagementModal"
                             title="添加用户"
                             visible={visible}
                             onOk={this.handleOk}
