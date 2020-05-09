@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Form, Input, Button, Select, Modal, Checkbox, Row, Col, Radio, } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
+import styled, { withTheme } from 'styled-components'
 
 const { Option } = Select;
 
@@ -11,6 +12,10 @@ const layout = {
 const tailLayout = {
     wrapperCol: { offset: 8, span: 16 },
 };
+
+const ModalFormStyled = styled.div`
+
+`
 
 class ModalComponent extends Component {
     formRef = React.createRef();
@@ -152,6 +157,7 @@ class ModalComponent extends Component {
                     
                 </Form>
                 <Modal
+                    className="addAuthorizationModal"
                     title="追加权限"
                     visible={visible}
                     onOk={this.handleOk}
