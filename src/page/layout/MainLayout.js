@@ -124,11 +124,27 @@ body{
         background: none;
     }
     .ant-menu-submenu-popup > .ant-menu{
+        border: 1px solid #238EDE;
+        border-radius: 8px;
         background: none;
     }
-    .ant-menu-vertical.ant-menu-sub .ant-menu-item{
-        color: yellow
+    .ant-menu-item > a{
+        color: #fff;
     }
+    .ant-menu-item-group-title{
+        padding: 0;
+    }
+    .ant-menu-vertical.ant-menu-sub .ant-menu-item:hover{
+        background:
+            linear-gradient( 
+                #1DD5E6 0%, 
+                #46AEF7 100%
+            );
+        a{
+            color: #030E3E  
+        }
+    }
+    
 }
 `
 const RouteWithSubRoutes = ({ routes }) => {
