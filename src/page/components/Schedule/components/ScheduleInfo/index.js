@@ -1,16 +1,22 @@
 import React, { Component } from 'react';
 import { DatePicker, Table, Button, Steps, List } from 'antd';
+import UserArrange from '../../../UserArrange/index'
 import styled, { withTheme } from 'styled-components';
 const { RangePicker } = DatePicker;
 const { Step } = Steps
-import { CheckCircleFilled, FileTextFilled, FileSearchOutlined, } from '@ant-design/icons';
+import { CheckCircleFilled, FileTextFilled, FileSearchOutlined,CheckOutlined } from '@ant-design/icons';
+// import './index.scss';
 const ScheduleInfoStyled = styled.div`
     margin-top: 10px;
     padding-top: 24px;
     border-top: 1px solid #454da8;
     .dateDiv{
+        width:1697px;
         display: flex;
         justify-content: space-between;
+    }
+    .ant-list {
+        width:1697px;
     }
     .ant-steps{
         width: 100%;
@@ -70,6 +76,23 @@ const ScheduleInfoStyled = styled.div`
     .memberBox>div{
         margin-right: 20px;
         width: 300px;
+    }
+    .arrange-head{
+        width:1697px;
+        height:54px;
+        background:rgba(12,110,193,0.15);
+        display:flex;
+        height:54px;
+        height:64px;
+        padding-left:214px;
+        font-size:16px;
+        font-weight:400;
+        color:rgba(255,255,255,1);
+        margin-bottom:16px;
+    }
+    .arrange-head-item{
+        width:313px;
+        padding-top:22px;
     }
 `
 
@@ -168,12 +191,19 @@ class ScheduleInfo extends Component {
                 <div className="dateDiv">
                     <p>值守信息</p>
                     <div>
-                        <RangePicker />
+                        <RangePicker/>
                         <Button className="searchBtn">查询</Button>
                         <Button className="exportBtn">导出</Button>
                     </div>
                 </div>
                 <div>
+                    <div className="arrange-head">
+                        <div class='arrange-head-item'>8:00</div>
+                        <div class='arrange-head-item'>12:00</div>
+                        <div class='arrange-head-item'>18:00</div>
+                        <div class='arrange-head-item'>次日00:00</div>
+                        <div class='arrange-head-item'>次日08:00</div>
+                    </div>
                 {/** 
                     <Table
                         columns={columns}
@@ -192,36 +222,24 @@ class ScheduleInfo extends Component {
                                 </div>
                                 <div className="memberBox" style={{display: 'flex'}}>
                                     <div>
-                                        <p>{item.time1}</p>
-                                         <Steps current={current} onChange={this.onChange}>
-                                            <Step  description="" icon={<CheckCircleFilled />}/>
-                                            <Step title='' description="" icon={<FileTextFilled />} />
-                                        </Steps>
-                                    </div>
+                    
+                                        <UserArrange current={''} user={item.time1} onChange={this.onChange}/>
                                     
-                                    <div>
-                                        <p>{item.time2}</p>
-                                        <Steps current={current} onChange={this.onChange}>
-                                            <Step title='' description="" icon={<CheckCircleFilled />} />
-                                            <Step title='' description="" icon={<FileTextFilled />} />
-                                        </Steps>
                                     </div>
                                     <div>
-                                        <p>{item.time3}</p>
-                                        
-                                         <Steps current={current} onChange={this.onChange}>
-                                            <Step  description="" icon={<CheckCircleFilled />}/>
-                                            <Step title='' description="" icon={<FileTextFilled />} />
-                                        </Steps>
-                                    </div>
+                    
+                                        <UserArrange current={''} user={item.time1} onChange={this.onChange}/>
                                     
-                                    <div>
-                                        <p>{item.time4}</p>
-                                        <Steps current={current} onChange={this.onChange}>
-                                            <Step title='' description="" icon={<CheckCircleFilled />} />
-                                            <Step title='' description="" icon={<FileTextFilled />} />
-                                        </Steps>
                                     </div>
+                                    <div>
+                                    <UserArrange current={'current'} user={item.time3} onChange={this.onChange}/>
+                                    </div>
+                                    <div>
+                                        <UserArrange current={'wait'} user={item.time1} onChange={this.onChange}/>
+                                    </div>
+                            
+                                    
+                                    
                                 </div>
                                 <div>
                                     <Button>

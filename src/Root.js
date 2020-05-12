@@ -4,6 +4,8 @@ import { ConnectedRouter } from 'react-router-redux';
 import store from './redux/configureStore';
 import { createBrowserHistory } from 'history';
 import AppContainer from './page/routes/';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
 var history = createBrowserHistory();
 
 export default class Root extends Component {
@@ -20,9 +22,9 @@ export default class Root extends Component {
     return (
       <Provider store={store}>
         <ConnectedRouter history={history}>
-        <div>
-        <AppContainer />
-        </div>
+          <ConfigProvider locale={zhCN}>
+            <AppContainer />
+          </ConfigProvider>
         </ConnectedRouter>
       </Provider>
     );
