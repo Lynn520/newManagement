@@ -48,7 +48,7 @@ switch (target) {
     // case 'release':
     //     WEBSOCKET = WBSOCKET_RELEASE
     //     HTTP_BASE = RELEASE
-    //     RPC = RPC_RELEASE
+    //     RPC = R     PC_RELEASE
     //     HTTP_BASE_FSDEX = FSDEX_RELEASE
     //     break
     // case 'dawn':
