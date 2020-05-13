@@ -9,15 +9,25 @@ import idx from 'idx'
 const { TabPane } = Tabs;
 const { Option } = Select;
 const RAMListStyled = styled.div`
-    
+    .ant-tabs{
+        color: #fff;
+    }
     .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab{
         color: #fff;
         background: #1A3BB7;
     }
+    .ant-tabs-nav .ant-tabs-tab-active{
+        color: #FEC920;
+    }
+    .ant-tabs-ink-bar{
+        background-color: #FEC920;
+    }
+    .ant-tabs-nav .ant-tabs-tab:hover{
+        color: #FEC920;
+    }
     .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab-active{
         color: #fec920;
     }
-    
 }
 `
 
@@ -26,7 +36,7 @@ class  UserManagement extends Component{
         const { theme } = this.props
         return(
             <RAMListStyled>
-                <Tabs defaultActiveKey="1" onChange={this.callback} type="card">
+                <Tabs defaultActiveKey="1" onChange={this.callback} type="line">
                     <TabPane tab="机构用户" key="1">
                         <TabPaneComponent theme={theme}/>
                     </TabPane>

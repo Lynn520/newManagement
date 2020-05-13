@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { EyeOutlined,BellOutlined } from '@ant-design/icons';
+import { EyeOutlined,BellOutlined, BellFilled, } from '@ant-design/icons';
 import styled, { withTheme } from 'styled-components';
 import { DatePicker, Table, Button, Steps, List} from 'antd';
 const ReportListStyled = styled.div`
@@ -113,7 +113,7 @@ class ReportList extends Component {
             key: 'type',
             render:(text,record) =>(
                 <span style={{color:text=='high'?'red':text=='low'?'green':''}}>
-                    <BellOutlined/>
+                    <BellFilled/>
                 </span>
             )
             
