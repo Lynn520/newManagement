@@ -144,6 +144,24 @@ body{
             color: #030E3E  
         }
     }
+    .reportOverlay{
+        ul{
+            border: 1px solid #238EDE;
+            background: #020A37;
+        }
+        .ant-dropdown-menu-item{
+            color: #fff;
+        }
+        .ant-dropdown-menu-item:hover{
+            color: #030E3E;
+            background:
+            linear-gradient( 
+                #1DD5E6 0%, 
+                #46AEF7 100%
+            );
+        }
+        
+    }
     
 }
 `
