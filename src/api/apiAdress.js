@@ -34,10 +34,10 @@ let HTTP_BASE_FSDEX
 
 switch (target) {
     case 'dev':
-        WEBSOCKET = WBSOCKET_DEV
+        // WEBSOCKET = WBSOCKET_DEV
         HTTP_BASE = DEV
-        RPC = RPC_DEV
-        HTTP_BASE_FSDEX = FSDEX_DEV
+        // RPC = RPC_DEV
+        // HTTP_BASE_FSDEX = FSDEX_DEV
         break
     // case 'beta':
     //     WEBSOCKET = WBSOCKET_BETA

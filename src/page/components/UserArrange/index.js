@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './index.scss';
+// import './index.scss';
 import { CheckOutlined,FileTextFilled } from '@ant-design/icons';
 import styled, { withTheme } from 'styled-components';
 const UserArrangeStyled = styled.div`

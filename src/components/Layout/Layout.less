@@ -1,0 +1,92 @@
+@import "../../themes/vars";
+
+.layout {
+  min-width: 1920px;
+  background: #000c40;
+  position:relative;
+  box-sizing:border-box;
+  min-height:100vh;
+
+  .main {
+    margin-left: 0;
+    overflow   : auto;
+    height     : 100vh;
+    transition : @transition-ease-out;
+
+
+  }
+
+  .content {
+    min-height: e("calc(100vh - 184px)");
+    position  : relative;
+  }
+
+  :global {
+    .ant-menu {
+      display   : flex !important;
+      background: none;
+      border    : 0;
+    }
+
+    .ant-layout-header {
+      padding: 0;
+    }
+
+    .ant-layout-content {
+      margin-top: 20px;
+    }
+
+    /*危险化学品监测系统*/
+    /*顶部导航*/
+
+    .ant-menu-horizontal>.ant-menu-item,
+    .ant-menu-horizontal>.ant-menu-submenu {
+      padding-top: 16px;
+    }
+
+    .ant-menu-horizontal>.ant-menu-item-selected {
+      border: none;
+    }
+
+    .ant-menu-horizontal>.ant-menu-item,
+    .ant-menu-horizontal>.ant-menu-submenu {
+      padding: 30px 0 0;
+      border : 0;
+    }
+
+    .ant-menu-horizontal>.ant-menu-item:hover,
+    .ant-menu-horizontal>.ant-menu-submenu:hover,
+    .ant-menu-horizontal>.ant-menu-item-active,
+    .ant-menu-horizontal>.ant-menu-submenu-active,
+    .ant-menu-horizontal>.ant-menu-item-open,
+    .ant-menu-horizontal>.ant-menu-submenu-open,
+    .ant-menu-horizontal>.ant-menu-item-selected,
+    .ant-menu-horizontal>.ant-menu-submenu-selected {
+      border: 0;
+    }
+
+    .ant-menu-horizontal>.ant-menu-item-active a {
+      border-bottom: 1px solid #fec920;
+    }
+
+    .ant-menu-horizontal>.ant-menu-item>a,
+    .ant-menu-submenu-title {
+      padding     : 0 10px 5px;
+      height      : 16px;
+      line-height : 16px;
+      color       : #fff;
+      border-right: 1px solid #1A3BB7 !important;
+    }
+
+    .ant-menu-horizontal>.ant-menu-item-selected>a {
+      color: #fec920;
+    }
+
+    .ant-menu-horizontal>.ant-menu-item>a:hover,
+    .ant-menu-submenu-title:hover,
+    .ant-menu-item a:hover {
+      color: #fec920;
+    }
+    
+  }
+}
