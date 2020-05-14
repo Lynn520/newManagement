@@ -9,7 +9,10 @@ import AccountSaga from './events/AccountSaga';
 import TokenSaga from "./events/TokenSaga";
 import TpsEchartsSaga from './events/TpsEchartsSaga';
 import fscEchartsSaga from './events/fscEchartsSaga';
-import publicKeySaga from './events/publicKeySaga'
+import publicKeySaga from './events/publicKeySaga';
+
+import userListSaga from './events/userListSaga';
+
 export default function* rootSaga() {
   yield all([
     fork(chainInfoSaga),
@@ -22,6 +25,7 @@ export default function* rootSaga() {
     fork(TpsEchartsSaga),
     fork(fscEchartsSaga),
     fork(homeWebSocketSaga),
-    fork(publicKeySaga)
+    fork(publicKeySaga),
+    fork(userListSaga)
   ]);
 }

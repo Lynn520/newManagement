@@ -33,12 +33,14 @@ const RAMListStyled = styled.div`
 
 class  UserManagement extends Component{
     render(){
-        const { theme } = this.props
+        const { theme, userListDispatch, } = this.props
+        console.log('this.props===>',this.props)
+
         return(
             <RAMListStyled>
                 <Tabs defaultActiveKey="1" onChange={this.callback} type="line">
                     <TabPane tab="机构用户" key="1">
-                        <TabPaneComponent theme={theme}/>
+                        <TabPaneComponent theme={theme} userListDispatch={userListDispatch}/>
                     </TabPane>
                     <TabPane tab="企业用户" key="2">
                         <TabPaneComponent theme={theme}/>
