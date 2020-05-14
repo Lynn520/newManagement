@@ -3,7 +3,11 @@ import React, { Component } from 'react';
 import { Layout, Loader } from '../components';
 import PropTypes from 'prop-types';
 import { Route, Switch } from 'react-router-dom';
-import routesConfig from './routes/config';
+import { routerConfig } from '../configs';
+import configs from '../configs';
+console.log(routerConfig);
+console.log('config',configs);
+import Routes from '../router';
 import { setMinHeight } from '$utils/setMinHeight'
 import { classnames, config } from '$utils'
 import styled, { ThemeProvider } from 'styled-components'
@@ -102,59 +106,49 @@ body{
 }
 `
 
-const RouteWithSubRoutes = ({ routes }) => {
-    return (
-        // 循环3套子路由，最后一套没有子路由的重定向
-        <Switch>
-            {
-                routes.map(route => {
-                    return (
-                        route.routes.map(subRoute => {
-                            return (
-                                <Route path={`${subRoute.path}`}
-                                    render={() =>
-                                        <div>
-                                            <Switch>
-                                                <Route {...subRoute} path={`${subRoute.path}`} ></Route>
-                                            </Switch>
-                                        </div>
-                                    }
-                                >
-                                </Route>
-                            )
-                        })
-                    )
-                })
-            }
-            <Route component={() => <div>not found</div>} />
-        </Switch>
-    )
-};
-RouteWithSubRoutes.propTypes = {
-    routes: PropTypes.array.isRequired,
-};
+// const RouteWithSubRoutes = ({ routes }) => {
+//     return (
+//         // 循环3套子路由，最后一套没有子路由的重定向
+//         <Switch>
+//             {
+//                 routes.map(route => {
+//                     return (
+//                         route.routes.map(subRoute => {
+//                             const { path, component, ...rest } = subRoute;
+//                             return (
+//                                 <Route path={`${subRoute.path}`}
+//                                     render={() =>
+//                                         <div>
+//                                             <Switch>
+//                                                 <Route path={path} component={component} {...rest} />
+//                                             </Switch>
+//                                         </div>
+//                                     }
+//                                 >
+//                                 </Route>
+//                             )
+//                         })
+//                     )
+//                 })
+//             }
+//             <Route component={() => <div>not found</div>} />
+//         </Switch>
+//     )
+// };
+// RouteWithSubRoutes.propTypes = {
+//     routes: PropTypes.array.isRequired,
+// };
 
 class MainLayout extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            grid: true
+        }
+    }
     componentDidMount() {
         setMinHeight()
-    }
-    componentWillReceiveProps(nextProps) {
-        const currentRoute = idx(this.props, _ => _.location.pathname);
-        const nextRoute = idx(nextProps, _ => _.location.pathname);
-        if (currentRoute !== nextRoute) {
 
-            if (this.props.history.action !== 'POP') {
-                this.scrollTimeout = null;
-                window.scrollTo(0, 0);
-                //向RN发送路由改变的消息
-                let ua = window.navigator.userAgent
-                if ((ua.search('FSCiOS') > -1) || (ua.search('FSCAndroid') > -1)) {
-                    let messageObj = { ...nextProps.location }
-                    messageObj.action = 'history';
-                    (window["ReactNativeWebView"] || window).postMessage(JSON.stringify(messageObj))
-                }
-            }
-        }
     }
     componentDidUpdate(prevProps, prevState) {
         if (prevProps != this.props) {
@@ -164,22 +158,15 @@ class MainLayout extends Component {
 
     render() {
         const { history } = this.props
+        const { grid } = this.state.grid;
         return (
             <ThemeProviderStyled>
                 <ThemeProvider theme={Theme}>
-                    <div
-                        className={classnames(styles.layout)}>
+
+                    <div>
                         <Globalstyle />
-                        <div className={styles.main}>
-                            <Header history={history} >
-                                <HeadMenu theme={Theme} />
-                            </Header>
-                            <div className={styles.container}>
-                                <div className={styles.content}>
-                                    <RouteWithSubRoutes routes={routesConfig} />
-                                </div>
-                            </div>
-                        </div>
+                        <Routes routes={routerConfig}></Routes>
+                    
                     </div>
                     {/* <Layout className={`layout`}>
                         <Globalstyle />
@@ -187,7 +174,7 @@ class MainLayout extends Component {
                             <MenuContainer history={history} />
                         </Header>
                         <Content className={`content`} >
-                            <RouteWithSubRoutes routes={routesConfig} />
+                            <RouteWithSubRoutes routes={routerConfig} />
                         </Content>
                     </Layout> */}
                 </ThemeProvider>

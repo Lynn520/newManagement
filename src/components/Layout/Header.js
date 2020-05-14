@@ -4,6 +4,12 @@ import { Layout } from 'antd';
 // import { Icon, message, Menu, Avatar } from 'antd'
 const { Header, Content } = Layout;
 import styled, { withTheme } from 'styled-components'
+import moment from 'moment';
+const DATEFORMAT = 'YYYY/MM/DD dddd';
+const TIMEFORMAT = 'HH:mm:ss';
+import styles from './Header.less'
+import { classnames } from 'utils'
+
 const MyHeaderProviderStyled = styled.div` 
     .ant-menu{
         display:flex!important;
@@ -29,62 +35,43 @@ const MyHeaderProviderStyled = styled.div`
         font-size: 12px;
     }
 `
-
-class MyHeader extends React.Component {
+export default class extends React.Component {
     constructor(props) {
         super(props);
-        // const userTheme = JSON.parse(localStorage.getItem('user-theme'));
-        // let color = '#13C2C2';
-        // if (userTheme) {
-        //     window.less.modifyVars(userTheme);
-        //     color = userTheme['@primary-color']
-        // }
         this.state = {
+            date: new Date(),
             isFullscreen: false,    //控制页面全屏
         }
     }
 
+    componentDidMount() {
+        setInterval(() => {
+            this.setState({
+                date: new Date(),
+            })
+        }, 1000)
+    }
 
     render() {
-        const { isFullscreen, color, infoVisible, passwordVisible } = this.state;
-        const { user, theme } = this.props;
         return (
             <MyHeaderProviderStyled>
-                <Header className={`header`}>
+                <Header className={classnames('header', { [styles.grid]: this.props.grid })}>
                     <div className={`menuComponent`}>
                         <div className={`mainMenu`}>
                             <div className="timeBox">
-                                <div>2020/04/17 周一</div>
-                                <div>09:35:26 北京 23度 晴</div>
+                                <div>
+                                    {moment(this.state.date).format(DATEFORMAT)}
+                                </div>
+                                <div>{moment(this.state.date).format(TIMEFORMAT)} 北京 23度 晴</div>
                             </div>
                             {this.props.children}
                         </div>
-                       
+
                     </div>
 
                 </Header>
             </MyHeaderProviderStyled>
-
         )
     }
 }
 
-const styles = {
-    headerRight: {
-        float: 'right',
-        display: 'flex',
-        height: 64,
-        marginRight: 50
-    },
-    headerItem: {
-        display: 'flex',
-        alignItems: 'center',
-        padding: '0 20px'
-    },
-    avatarBox: {
-        display: 'flex',
-        alignItems: 'center',
-    }
-};
-
-export default MyHeader

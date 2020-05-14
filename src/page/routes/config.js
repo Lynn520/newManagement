@@ -16,8 +16,8 @@ const routes = [
         routes: [
             { path: '/userManagement', exact: true, name: '/userManagement', key: '/userManagement', component: UserManagementContainer },
             { path: '/schedule', exact: true, name: '/schedule', key: '/schedule', component: ScheduleContainer },
-            { path: '/report', exact: true, name: '/report', key: '/report', component: ReportContainer },
-            { path: '/chart', exact: true, name: '/chart', key: '/chart', component: ChartContainer },
+            { path: '/report', exact: true, name: '/report', key: '/report', component: ReportContainer,grid:true },
+            { path: '/chart', exact: true, name: '/chart', key: '/chart', component: ChartContainer,grid:true},
         ],
     },
 ]
