@@ -16,6 +16,7 @@ const ReportStyled = styled.div`
         color: #fff;
     }
     .dropDownDiv{
+        margin-top: 30px;
         margin-bottom: 26px;
         padding-bottom: 16px;
         border-bottom: 1px solid #454DA8;
@@ -97,7 +98,7 @@ class Report extends Component {
         return (
             <ReportStyled>
                 <div className='dropDownDiv'>
-                    <Dropdown overlay={menu} visible overlayClassName="reportOverlay">
+                    <Dropdown overlay={menu} overlayClassName="reportOverlay">
                         <a className={`ant-dropdown-link`} style={{ color: this.state.dropdownSelected === 1 ? '#FEC920' : '#fff' }} >
                             预警系统
                         </a>

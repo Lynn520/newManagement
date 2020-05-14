@@ -69,7 +69,7 @@ class TabPaneComponent extends Component {
     };
 
     render() {
-        const { theme } = this.props
+        const { theme, userListDispatch, } = this.props
         const { visible, confirmLoading, ModalText } = this.state
         return (
             <TabPaneComponentStyled>
@@ -100,7 +100,7 @@ class TabPaneComponent extends Component {
                 </div>
                 <div className="searchTableBox">
                     <SearchComponent />
-                    <UserManagementTable />
+                    <UserManagementTable userListDispatch={userListDispatch}/>
                 </div>
 
             </TabPaneComponentStyled>

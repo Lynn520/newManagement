@@ -101,6 +101,10 @@ class RAMListTable extends React.Component {
         }
     }
 
+    componentDidMount() {
+        this.props.userListDispatch()
+    }
+
     render() {
         const { language, RAMListReducer } = this.props
         let mockData = [{

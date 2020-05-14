@@ -13,6 +13,8 @@ import publicKeySaga from './events/publicKeySaga';
 
 
 import chartSaga from './events/chartSaga';
+import userListSaga from './events/userListSaga';
+
 export default function* rootSaga() {
   yield all([
     fork(chainInfoSaga),
@@ -27,5 +29,6 @@ export default function* rootSaga() {
     fork(homeWebSocketSaga),
     fork(publicKeySaga),
     fork(chartSaga),
+    fork(userListSaga)
   ]);
 }
