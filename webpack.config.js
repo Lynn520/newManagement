@@ -48,7 +48,8 @@ module.exports = function(webpackEnv) {
                 $api: path.resolve(__dirname, './src/api'),
                 $template: path.resolve(__dirname, './src/template'),
                 themes: path.resolve(__dirname, './src/themes'),
-                component: path.resolve(__dirname, './src/components'),
+                components: path.resolve(__dirname, './src/components'),
+                utils: path.resolve(__dirname, './src/utils'),
             },
         },
         node: {
