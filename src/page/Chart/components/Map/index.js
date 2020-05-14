@@ -6,10 +6,13 @@ import ScrollNumber from 'components/ScrollNumber';
 import { genOverviewMap, genOverviewBar } from '$utils/genMapData';
 
 import styles from './index.less';
-
+const map = require('mock/map');
 export default class index extends PureComponent {
+  state = {
+    map : map()
+  }
   render() {
-    const { map } = this.props;
+    const { map } = this.state;
     const { mapData, message } = map;
     const chinaMapData = genOverviewMap(mapData, message);
     const { sum, ...mapBarData } = genOverviewBar(mapData);
@@ -17,7 +20,7 @@ export default class index extends PureComponent {
     return (
       <Fragment>
         {mapData.length > 0 && (
-          <div>
+          <Fragment>
             <div className={styles.numBox}>
               <div className={styles.title}>当前累计贷款金额</div>
               <ScrollNumber numbers={sum * 1000} style={{ color: '#e8bb3f', fontSize: 50 }} />
@@ -36,7 +39,7 @@ export default class index extends PureComponent {
                 width: '30%',
               }}
             />
-          </div>
+          </Fragment>
         )}
       </Fragment>
     );

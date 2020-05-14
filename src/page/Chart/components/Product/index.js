@@ -5,10 +5,13 @@ import Pie from 'components/Charts/Pie';
 import { genLoanProduct } from '$utils/genChartData';
 
 import styles from './index.less';
-
+const product = require('mock/product');
 export default class index extends PureComponent {
+  state = {
+    loan : product()
+  }
   render() {
-    const { loan } = this.props;
+    const loan  = this.state.loan;
     const { product, cooperator } = loan;
     const loanProductData = genLoanProduct(product);
     const loanCoopData = genLoanProduct(cooperator);

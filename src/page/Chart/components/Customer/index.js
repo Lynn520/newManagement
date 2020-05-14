@@ -26,12 +26,19 @@ const legends = {
     backgroundColor: '#8874a5',
   },
 };
-
+const userConver = require('mock/userConver');
 
 export default class index extends PureComponent {
+  constructor(props) {
+    super(props);
+  }
+  state = {
+      userConver : userConver()
+  }
   render() {
-    const { loan } = this.props;
-    const { userConver } = loan;
+    // const { loan } = this.props;
+    // const { userConver } = loan;
+    const {userConver} = this.state.userConver;
     const userConverData = genUserConver(userConver, legends);
     const userConverLineData = genUserConverLine(userConver, legends);
 

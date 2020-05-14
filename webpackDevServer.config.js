@@ -1,4 +1,4 @@
-const  HtmlWebpackPlugin = require('html-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 module.exports = {
     mode: "development",
@@ -8,21 +8,21 @@ module.exports = {
         filename: "bundle.[hash].js",
         publicPath: '/',
     },
-    node:{
+    node: {
         fs: 'empty'
     },
     // externals: nodeModules,
     plugins: [
         new HtmlWebpackPlugin({
-        template: './index.html',
-        // inject: false, // 因为要延迟加载bundle，不能直接inject到body
-        favicon:'./favicon.ico',
-        minify: {
-            removeAttributeQuotes: true,
-            removeComments: true,
-            collapseWhitespace: true,
-            removeEmptyAttributes: true //去除空属性
-        }
+            template: './index.html',
+            // inject: false, // 因为要延迟加载bundle，不能直接inject到body
+            favicon: './favicon.ico',
+            minify: {
+                removeAttributeQuotes: true,
+                removeComments: true,
+                collapseWhitespace: true,
+                removeEmptyAttributes: true //去除空属性
+            }
         }),
     ],
 
@@ -36,6 +36,7 @@ module.exports = {
             themes: path.resolve(__dirname, './src/themes'),
             components: path.resolve(__dirname, './src/components'),
             utils: path.resolve(__dirname, './src/utils'),
+            mock: path.resolve(__dirname, './mock'),
         },
     },
     devServer: {
@@ -55,6 +56,10 @@ module.exports = {
             errors: true,
         },
         open: true,
+        proxy: {
+            // 代理到后端的服务地址
+            // "/api": "http://localhost:3000"
+        },
     },
     module: {
         rules: [
@@ -74,18 +79,19 @@ module.exports = {
                     { loader: 'style-loader' },
                     { loader: 'css-loader?modules' },
                     { loader: 'sass-loader' },
-                    { loader: 'less-loader',
-                  
-                           options: {
+                    {
+                        loader: 'less-loader',
+
+                        options: {
                             //    lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
-                                 modifyVars: {
+                            modifyVars: {
                                 //    'primary-color': '#1DA57A',
                                 //    'link-color': '#1DA57A',
                                 //    'border-radius-base': '2px',
-                                 },
+                            },
 
-                               javascriptEnabled: true,
-                             },
+                            javascriptEnabled: true,
+                        },
                     },
                 ],
             },
@@ -96,19 +102,20 @@ module.exports = {
                     { loader: 'style-loader' },
                     { loader: 'css-loader' },
                     { loader: 'sass-loader' },
-                    { loader: 'less-loader',
-                    options: {
-                        // lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
-                          modifyVars: {
-                            // 'primary-color': '#1DA57A',
-                            // 'link-color': '#1DA57A',
-                            // 'border-radius-base': '2px',
-                          },
-                          
-                        // },
-                        javascriptEnabled: true,
-                      },
-                     },
+                    {
+                        loader: 'less-loader',
+                        options: {
+                            // lessOptions: { // 如果使用less-loader@5，请移除 lessOptions 这一级直接配置选项。
+                            modifyVars: {
+                                // 'primary-color': '#1DA57A',
+                                // 'link-color': '#1DA57A',
+                                // 'border-radius-base': '2px',
+                            },
+
+                            // },
+                            javascriptEnabled: true,
+                        },
+                    },
                 ],
             },
             {

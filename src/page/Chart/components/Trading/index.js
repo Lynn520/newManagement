@@ -41,29 +41,30 @@ export default class index extends PureComponent {
     };
   }
 
-  static getDerivedStateFromProps(props, state) {
-    const {
-      map: { message },
-    } = props;
-    let { business } = state;
-    if (Object.keys(message).length !== 0) {
-      if (business.length > 7) {
-        business = business.slice(0, 7);
-      }
-      return {
-        business: [
-          {
-            ...message,
-            time: +new Date(),
-            operate: '贷款',
-            productName: '',
-          },
-          ...business,
-        ],
-      };
-    }
-    return null;
-  }
+  // static getDerivedStateFromProps(props, state) {
+  //   props.map = props.map || {}
+  //   const {
+  //     map: { message },
+  //   } = props;
+  //   let { business } = state;
+  //   if (Object.keys(message).length !== 0) {
+  //     if (business.length > 7) {
+  //       business = business.slice(0, 7);
+  //     }
+  //     return {
+  //       business: [
+  //         {
+  //           ...message,
+  //           time: +new Date(),
+  //           operate: '贷款',
+  //           productName: '',
+  //         },
+  //         ...business,
+  //       ],
+  //     };
+  //   }
+  //   return null;
+  // }
   
 
   render() {
