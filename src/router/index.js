@@ -9,7 +9,6 @@ import Login from '../page/Login';
 class Routes extends React.Component {
     constructor(props) {
         super(props);
-        console.log('this.props', this.props);
     }
     render() {
         const { routes } = this.props;
@@ -20,44 +19,20 @@ class Routes extends React.Component {
                 <Route path='/login' component={Login} />
                 <Index>
                     {
-                        routes.map((route, key) => {
-
-                            if (route.exact) {
-
-                                return <Route key={key} exact path={route.path}
-                                    render={props => (
-                                        // pass the sub-routes down to keep nesting
-                                        <route.component {...props} routes={route.routes} />
-                                    )}
-
-                                />
-                            } else {
-                                return <Route key={key} path={route.path}
-                                    render={props => (
-                                        // pass the sub-routes down to keep nesting
-                                        <route.component {...props} routes={route.routes} />
-                                    )}
-                                />
-
-                            }
-                        })
-                    }
-                </Index>
-                {/* {
                         routes.map(route => {
                             return (
-                                <Route component={route.component} path={`${subRoute.path}`>
+                                <Route key={route.key} component={route.component} path={`${route.path}`}>
                                     {
                                         route.routes ? route.routes.map(subRoute => {
                                             const { path, component, ...rest } = subRoute;
                                             return (
-                                                <Route path={`${subRoute.path}`}
+                                                <Route path={`${subRoute.path}`}  key={subRoute.key} 
                                                     render={() =>
-                                                        <div>
+                                                        
                                                             <Switch>
                                                                 <Route path={path} component={component} {...rest} />
                                                             </Switch>
-                                                        </div>
+                                                       
                                                     }
                                                 >
                                                 </Route>
@@ -67,7 +42,8 @@ class Routes extends React.Component {
                                 </Route>
                             )
                         })
-                    } */}
+                    }
+                </Index>
                 <Route component={() => <div>not found</div>} />
             </Switch>
         )
