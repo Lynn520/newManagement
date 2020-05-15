@@ -8,7 +8,7 @@
     color: #fff;
     display: grid;
     grid-template-columns: repeat(9, 1fr);
-    grid-template-rows: 80px repeat(8, 1fr);
+    grid-template-rows: 80px repeat(7, 1fr);
     grid-gap: 6px;
     padding: 6px;
     z-index: 99;
@@ -23,27 +23,27 @@
       background: rgba(40, 47, 56, 0.5);
     }
     .header {
-      grid-area: 1 / 1 / span 1 / span 9;
+      grid-area: ~"1 / 1 / span 1 / span 9";
     }
     .topLeft {
-      grid-area: 2 / 1 / span 4 / span 2;
+      grid-area: ~"1 / 1 / span 4 / span 2";
       // display: flex;
     }
     .topCenter {
-      grid-area: 2 / 3 / span 5 / span 4;
+      grid-area: ~"1 / 3 / span 5 / span 4";
       display: flex;
     }
     .topRight {
-      grid-area: 2 / 7 / span 5 / span 3;
+      grid-area: ~"1 / 7 / span 5 / span 3";
     }
     .bottomLeft {
-      grid-area: 6 / 1 / span 4 / span 2;
+      grid-area:~"5 / 1 / span 4 / span 2";
     }
     .bottomCenter {
-      grid-area: 7 / 3 / span 3 / span 4;
+      grid-area: ~"6 / 3 / span 3 / span 4";
     }
     .bottomRight {
-      grid-area: 7 / 7 / span 3 / span 3;
+      grid-area: ~"6 / 7 / span 3 / span 3";
     }
-  }
+}
   

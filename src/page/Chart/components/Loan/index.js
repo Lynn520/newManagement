@@ -53,10 +53,20 @@ const loanLabel = [
     border: '1px dashed #417505',
   },
 ];
-
+const loan = require('mock/loan');
 export default class index extends PureComponent {
+  constructor(props){
+    super(props);
+    console.log(loan());
+  }
+  state = {
+    loan : loan()
+  }
   render() {
-    const { loan } = this.props;
+    // const { loan } = this.props;
+  
+    const loan = this.state.loan;
+    
     const { overview, loanStatistical, ageStatistical, ageAverage } = loan;
     const loanStatisticalData = genLoanStatistical(loanStatistical, labels);
     const ageStatisticalData = genAgeStatistical(ageStatistical);

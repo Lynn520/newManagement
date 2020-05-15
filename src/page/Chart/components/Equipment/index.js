@@ -32,12 +32,34 @@ const legends = {
     backgroundColor: '#009DFF',
   },
 };
-
+const loan = require('mock/loan');
+const userConver = require('mock/userConver');
+const product = require('mock/product');
+const cooperator = require('mock/cooperator');
+const equipment = require('mock/equipment');
 
 export default class index extends PureComponent {
+  constructor(props) {
+    super(props);
+    // console.log(equipment());
+    console.log(this.state);
+   
+    // this.state.currentData = equipment();
+    // this.state.channel = channel;
+  }
+  state = {currentData:equipment()
+  };
+
+  // componentDidMount(){
+  //   this.setState({currentData:equipment()});
+  // }
   render() {
-    const { loan } = this.props;
-    const { equipment, channel } = loan;
+    // const { loan } = this.props;
+    // const { equipment, channel } = loan;
+    const { equipment, channel } = this.state.currentData;
+    // const equipment = this.state.equipment;
+    // const channel = this.state.channel;
+    
 
     const equipmentData = genEquipment(equipment, legends);
     const channelData = calculate(channel);

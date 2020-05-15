@@ -50,6 +50,8 @@ module.exports = function(webpackEnv) {
                 themes: path.resolve(__dirname, './src/themes'),
                 components: path.resolve(__dirname, './src/components'),
                 utils: path.resolve(__dirname, './src/utils'),
+                mock: path.resolve(__dirname, './mock'),
+                config: path.resolve(__dirname, './src/config'),
             },
         },
         node: {

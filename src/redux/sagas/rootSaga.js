@@ -11,6 +11,8 @@ import TpsEchartsSaga from './events/TpsEchartsSaga';
 import fscEchartsSaga from './events/fscEchartsSaga';
 import publicKeySaga from './events/publicKeySaga';
 
+
+import chartSaga from './events/chartSaga';
 import userListSaga from './events/userListSaga';
 
 export default function* rootSaga() {
@@ -26,6 +28,7 @@ export default function* rootSaga() {
     fork(fscEchartsSaga),
     fork(homeWebSocketSaga),
     fork(publicKeySaga),
+    fork(chartSaga),
     fork(userListSaga)
   ]);
 }

@@ -6,6 +6,22 @@
   position:relative;
   box-sizing:border-box;
   min-height:100vh;
+  &.grid{
+    .main{
+      width: 100%;
+      height: 100%;
+      min-height: 1080px;
+      font-size: 14px;
+      color: #fff;
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      grid-template-rows: 80px repeat(8, 1fr);
+      grid-gap: 6px;
+      padding: 6px;
+      z-index: 99;
+    }
+   
+  }
 
   .main {
     margin-left: 0;
@@ -72,8 +88,8 @@
     .ant-menu-horizontal>.ant-menu-item>a,
     .ant-menu-submenu-title {
       padding     : 0 10px 5px;
-      height      : 16px;
-      line-height : 16px;
+      height      : 64px;
+      line-height : 64px;
       color       : #fff;
       border-right: 1px solid #1A3BB7 !important;
     }

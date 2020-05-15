@@ -1,7 +1,7 @@
 /* global window */
 import classnames from 'classnames'
 import lodash from 'lodash'
-import moment from 'moment'
+import moment from 'utils/moment'
 import config from './config'
 
 const formatMoney = function(money, decimal = 2) {

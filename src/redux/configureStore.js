@@ -1,8 +1,7 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware, combineReducers ,compose} from 'redux';
 import createSagaMiddleware  from 'redux-saga';
 import rootSaga from './sagas/rootSaga';
+// rootReducer
 import events from './modules/events/index';
 import { createBrowserHistory } from 'history';
 var history = createBrowserHistory();

@@ -375,6 +375,7 @@ export function genAgeAverage(data) {
 }
 
 export function genLoanProduct(data) {
+  data = data || [];
   const sortArr = data.sort((a, b) => b.loanCount - a.loanCount);
   const remainSum = sortArr.slice(5, sortArr.length).reduce((prev, cur) => cur.loanCount + prev, 0);
   const sum = sortArr.slice(0, 5).reduce((prev, cur) => cur.loanCount + prev, remainSum);

@@ -9,7 +9,11 @@ import Trading from './components/Trading';
 
 import styles from './Chart.less';
 
+
 export default class index extends PureComponent {
+  constructor(props){
+    super(props);
+  }
   render() {
     return (
       <div>

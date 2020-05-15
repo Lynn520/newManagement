@@ -11,6 +11,13 @@ import tokenReducer from './tokenReducer'
 import tpsEchartsReducer from './tpsEchartsReducer'
 import fscEchartsReducer from './fscEchartsReducer'
 import publicKeyReducer from './publicKeyReducer'
+
+
+
+import appReducer from './appReducer';
+import mapReducer from './mapReducer';
+import loanReducer from './loanReducer';
+
 const events = combineReducers({
     chainInfoReducer,
     home,
@@ -24,6 +31,9 @@ const events = combineReducers({
     fscEchartsReducer,
     homeWebSocketReducer,
     publicKeyReducer,
+    appReducer,
+    mapReducer,
+    loanReducer
 })
 
 export default events;
