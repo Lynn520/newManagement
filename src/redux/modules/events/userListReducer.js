@@ -10,6 +10,7 @@ export const userListFetchTypes = createTypes(USER_LIST);
 
 // action creators
 export function userListDispatch(params) {
+    
     return {
         type: USER_LIST,
         params,

@@ -102,7 +102,8 @@ class RAMListTable extends React.Component {
     }
 
     componentDidMount() {
-        this.props.userListDispatch()
+        const data = {"order":"asc","offset":0,"limit":5,"chName":"","status":""}
+        this.props.userListDispatch(data)
     }
 
     render() {

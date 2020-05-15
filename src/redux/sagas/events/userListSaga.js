@@ -4,8 +4,9 @@ import { api } from '../../../api/api'
 
 function* userList(action) {
   try {
+      console.log('action===>',action)
     yield put(userListActions.request());
-    const response = yield call(api.user_list);
+    const response = yield call(api.user_list,action.params);
     const { data, success } = response.data
 
     if (success === true) {
